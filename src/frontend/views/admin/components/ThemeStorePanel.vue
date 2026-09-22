@@ -16,12 +16,6 @@
           <span class="theme-current-label">{{ trans.currentTheme }}</span>
           <span class="theme-current-value">{{ currentThemeLabel }}</span>
         </div>
-        <button
-          v-if="currentThemeUrl"
-          @click="clearTheme"
-          class="btn btn-sm"
-          :disabled="applyingThemeId === '__builtin__'"
-        >↩ {{ trans.useBuiltinTheme }}</button>
       </div>
 
       <div class="theme-custom mb-4">
@@ -49,6 +43,12 @@
             class="btn btn-primary"
             :disabled="!customThemeUrl || applyingThemeId === '__custom__'"
           >⇄ {{ applyingThemeId === '__custom__' ? trans.saving : trans.applyCustomTheme }}</button>
+          <button
+            v-if="currentThemeUrl"
+            @click="clearTheme"
+            class="btn"
+            :disabled="applyingThemeId === '__builtin__'"
+          >↩ {{ trans.useBuiltinTheme }}</button>
         </div>
       </div>
 
